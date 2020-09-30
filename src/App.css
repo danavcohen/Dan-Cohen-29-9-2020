@@ -1,38 +1,47 @@
-.App {
+.favorites--card-deck{
+  margin-top: 30px;
+   justify-content: center;
+}
+.favorites--card-deck--row{
+  justify-content: center;
+}
+
+.favorites--card-deck--yellow-box{
+  justify-content: center;
+}
+.favorites--card-deck--link{
+  width:inherit;
+  text-decoration:inherit;
+  color:inherit;
+}
+.favorites--card-deck--card-title{
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.favorites--card-deck--card-text{
+  text-align: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header--logo{
+  width: 50px;
+   margin-right: 15px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.home-container{
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 15px;
+}
+
+.home--form{
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.home--form-control{
+  margin-top: 10px;
 }
+.home--container--card-container{
+  padding-top: 22px;
+}
+.home--card-header{
+  justify-content: space-between;
+  display:flex;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
