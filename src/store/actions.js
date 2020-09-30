@@ -9,7 +9,7 @@ export const setCurrentCity = (name) => ({
 export const addToFavorites = (favorite) => {
     return ({
         type: actionTypes.ADD_TO_FAVORITES,
-        favorite: new Favorite(favorite.key,favorite.name,favorite.weatherCondition,favorite.temperature),
+        favorite: new Favorite(favorite.key, favorite.name, favorite.weatherCondition, favorite.temperature),
     });
 }
 
@@ -26,13 +26,11 @@ export const changeTempType = () => ({
 export const setErrorModal = (errorMessage) => ({
     type: actionTypes.SET_ERROR_MODAL,
     errorMessage,
-    showErrorModal:true,
+    showErrorModal: true,
 });
 
 
-export const closeErrorModal = () => {
-    console.log('here')
-    return ({
+export const closeErrorModal = () => ({
     type: actionTypes.CLOSE_ERROR_MODAL,
-    showErrorModal:false,
-})};
+    showErrorModal: false,
+});

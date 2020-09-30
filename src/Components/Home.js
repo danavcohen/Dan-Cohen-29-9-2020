@@ -5,8 +5,6 @@ import { addToFavorites, removeFromFavorites, setErrorModal } from '../store/act
 import { City, Favorite } from '../modal/classes';
 import { getCitiesArrayFromApi, setCurrentConditionDataInCity, setFiveDaysForecastDataInCity } from '../utils/api';
 import FiveDaysForecastCards from './FiveDaysForecastCards';
-import ErrorModal from './ErrorModal';
-
 
 const Home = () => {
 
@@ -15,7 +13,6 @@ const Home = () => {
     const favorites = useSelector((state) => state.favorites);
     const dispatch = useDispatch();
     const [search, setSearch] = useState(currentCity);
-    console.log(search)
     const [cities, setCities] = useState([]);
 
     useEffect(() => {
@@ -28,9 +25,7 @@ const Home = () => {
         const tempCities = [];
         if (!search) { return; }//if the search field is empty.
         try {
-            throw 
             const resFromAutoComplete = await getCitiesArrayFromApi(search);
-
             for (const autoCompleteElement of resFromAutoComplete) {
                 const city = new City();
                 city.key = autoCompleteElement.Key;
@@ -40,7 +35,7 @@ const Home = () => {
                 tempCities.push(city);
             }//for   
         } catch (err) {
-            dispatch(setErrorModal(err.message));
+            dispatch(setErrorModal(err));
 
         }
         setCities([...tempCities])
@@ -69,15 +64,16 @@ const Home = () => {
                                     new Favorite(city.key, city.name, city.weatherCondition, city.temperature)))}>Add To Favorite</Button>
                         }</Card.Header>
                         <Card.Body>
-                            <Card.Title>Now {city.temperature}°{isCelsius ? 'C' : 'F'}</Card.Title>
+                            <Card.Title>Now {isCelsius ?
+                                city.temperature.celsius
+                                :
+                                city.temperature.fahrenheit}°{isCelsius ? 'C' : 'F'}</Card.Title>
                             <Card.Text as="h3">{city.weatherCondition}</Card.Text>
                             <FiveDaysForecastCards fiveDaysForecast={city.fiveDaysForecast} isCelsius={isCelsius} />
                         </Card.Body>
                     </Card>
                 </Container>
             ))}
-
-
         </div>
     )
 }

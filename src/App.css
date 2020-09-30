@@ -2,6 +2,14 @@
   margin-top: 30px;
    justify-content: center;
 }
+.favorites-empty{
+  color: #5e6872;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  width: 100%;
+}
 .favorites--card-deck--row{
   justify-content: center;
 }
@@ -11,7 +19,7 @@
 }
 .favorites--card-deck--link{
   width:inherit;
-  text-decoration:inherit;
+  text-decoration:none !important;
   color:inherit;
 }
 .favorites--card-deck--card-title{

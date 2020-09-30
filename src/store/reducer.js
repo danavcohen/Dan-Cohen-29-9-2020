@@ -3,9 +3,9 @@ import ActionTypes from "./ActionTypes";
 
 const initialState = {
     isCelsius: true,
-    favorites: [new Favorite('215854', 'Tel Aviv', 'Sunny', '36'), new Favorite('3431644', 'Telanaipura', 'Sunny', '36')],
+    favorites: [],
     currentCity: 'Tel Aviv',
-    showErrorModal: true,
+    showErrorModal: false,
     errorMessage: '',
 
 };

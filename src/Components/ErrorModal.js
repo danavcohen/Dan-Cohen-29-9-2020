@@ -6,7 +6,6 @@ import { closeErrorModal } from '../store/actions';
 const ErrorModal = () => {
     const dispatch = useDispatch();
     const show = useSelector(state => state.showErrorModal);
-    console.log(show)
     const message = useSelector(state => state.errorMessage);
     const handleClose = () => { dispatch(closeErrorModal()) }
     return (
