@@ -13,7 +13,9 @@
 .favorites--card-deck--row{
   justify-content: center;
 }
-
+.favorites--card-deck--col{
+  padding-top: 10px;
+}
 .favorites--card-deck--yellow-box{
   justify-content: center;
 }
@@ -38,7 +40,19 @@
   align-items: center;
   padding-top: 15px;
 }
-
+.home--form--search-button{
+  margin-top: 10px;  
+}
+.home--card--button-col{
+  display: flex;
+  margin-top: 10px;                
+}
+.home--card-button{
+  font-size: max(1rem,1.1vw) !important;
+}
+.header--navbar-brand{
+  font-size: min(1.25rem,5vw) !important;
+}
 .home--form{
   justify-content: center;
 }
@@ -47,6 +61,11 @@
 }
 .home--container--card-container{
   padding-top: 22px;
+}
+.home--card-row{
+  justify-content: space-between;
+  width: 100%;
+  
 }
 .home--card-header{
   justify-content: space-between;

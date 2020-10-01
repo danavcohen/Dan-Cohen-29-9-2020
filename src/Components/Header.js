@@ -15,18 +15,22 @@ const radios = [
 const Header = () => {
     const [radioValue, setRadioValue] = useState('C');
     const dispatch = useDispatch();
+
+
     return (
         <>
-            <Navbar bg="dark" variant="dark">
-                <Navbar.Brand href="/#">
+            <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+                <Navbar.Brand href="/" className="header--navbar-brand">
                     <img src={logo} alt="logo" className="header--logo" />
                     My Weather App
                     </Navbar.Brand>
-                <Nav className="mr-auto">
-                    <Link to="/" className="nav-link">Home</Link>
-                    <Link to="/Favorites" className="nav-link">Favorites</Link>
-                </Nav>
-                <ButtonGroup toggle>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Link to="/" className="nav-link">Home</Link>
+                        <Link to="/Favorites" className="nav-link">Favorites</Link>
+                    </Nav>
+                    <ButtonGroup toggle>
                     {radios.map((radio, idx) => (
                         <ToggleButton
                             key={idx}
@@ -45,6 +49,7 @@ const Header = () => {
                         </ToggleButton>
                     ))}
                 </ButtonGroup>
+                </Navbar.Collapse>
             </Navbar>
 
         </>

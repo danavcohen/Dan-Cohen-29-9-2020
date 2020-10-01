@@ -17,7 +17,7 @@ const Favorites = () => {
                 <Row className="favorites--card-deck--row">
                     {
                         favorites && favorites.map(fav => (
-                            <Col key={fav.key} md={4} lg={2} sm={8} style={{ paddingTop: '10px' }}>
+                            <Col key={fav.key} md={4} lg={2} sm={8} className="favorites--card-deck--col">
                                 <YellowCard className="favorites--card-deck--yellow-box">
                                     <Link to="/" className="favorites--card-deck--link"
                                         onClick={() => dispatch(setCurrentCity(fav.name))} >

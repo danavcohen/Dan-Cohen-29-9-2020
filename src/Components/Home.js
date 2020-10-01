@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { FormControl, Button, Form, Card, Container, } from 'react-bootstrap';
+import { FormControl, Button, Form, Card, Container, Col, Row } from 'react-bootstrap';
 import { addToFavorites, removeFromFavorites, setErrorModal } from '../store/actions';
 import { City, Favorite } from '../modal/classes';
 import { getCitiesArrayFromApi, setCurrentConditionDataInCity, setFiveDaysForecastDataInCity } from '../utils/api';
@@ -49,20 +49,38 @@ const Home = () => {
                     placeholder="Search a city"
                     className="mr-sm-2 home--form-control" value={search}
                     onChange={searchTypingHandler} />
-                <Button variant="outline-dark" onClick={searchButtonHandler} style={{ marginTop: '10px' }}>Search</Button>
+                <Button variant="outline-dark" onClick={searchButtonHandler} className="home--form--search-button" >Search</Button>
             </Form>
 
             {cities && cities.map((city) => (
                 <Container key={city.key} className="col-md-8 col-sm-12 home--container--card-container">
                     <Card >
-                        <Card.Header as="h4" className="home--card-header">{city.name}                 {
-                            favorites.find(favor => favor.key === city.key) ?
-                                <Button variant="danger" onClick={() => dispatch(
-                                    removeFromFavorites(city.key))}>Remove From Favorite</Button>
-                                :
-                                <Button variant="success" onClick={() => dispatch(addToFavorites(
-                                    new Favorite(city.key, city.name, city.weatherCondition, city.temperature)))}>Add To Favorite</Button>
-                        }</Card.Header>
+                        <Card.Header as="h4" className="home--card-header" >
+                            <Row className="home--card-row">
+                                <Col xs={12} sm={6} lg={7} xl={8}>{city.name}</Col>
+                                <Col xs={12} sm={5} lg={4} xl={3}
+                                    className="home--card--button-col">
+                                    {
+
+                                        favorites.find(favor => favor.key === city.key) ?
+                                            <Button variant="danger"
+                                                className="col-md  col-xs home--card-button"
+                                                onClick={() => dispatch(
+                                                    removeFromFavorites(city.key))}>
+                                                Remove From Favorite
+                                                        </Button>
+                                            :
+                                            <Button variant="success"
+                                                className="col-md  col-xs home--card-button" 
+                                                onClick={() => dispatch(addToFavorites(
+                                                    new Favorite(city.key, city.name,
+                                                        city.weatherCondition, city.temperature)))}>
+                                                Add To Favorite
+                                                            </Button>
+                                    }
+                                </Col>
+                            </Row>
+                        </Card.Header>
                         <Card.Body>
                             <Card.Title>Now {isCelsius ?
                                 city.temperature.celsius
